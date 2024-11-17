@@ -1,0 +1,46 @@
+<div style="margin: 20px; padding: 10px;">
+  <h2 class="section-title">
+    Christmas is just around the corner! Would you like to explore some of the best quotes?
+  </h2>
+
+  <div style="text-align: center; margin-bottom: 20px;">
+    <label for="category-select" style="font-size: 1.2em;">Select Category:</label>
+    <select id="category-select" (change)="onCategoryChange($event)" style="padding: 5px; font-size: 1em;">
+      <option value="dreams">dreams</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Quote</th>
+          <th>Author</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of quotes">
+          <td>{{item.quote}}</td>
+          <td>{{item.author}}</td>
+          <td>{{item.category}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-title">
+    Get ready for some festive laughs with Christmas jokes!
+  </h2>
+  <div class="joke-container">
+    <div class="joke-setup">{{ joke.setup }}</div>
+    <div class="joke-delivery">{{ joke.delivery }}</div>
+  </div>
+
+  <div class="button-container">
+    <button (click)="regenerateJoke()" class="regenerate-button">Regenerate Joke</button>
+  </div>
+  
+
+</div>
